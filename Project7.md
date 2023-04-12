@@ -64,7 +64,7 @@
 ![NFS-MountPoint](./Image-7/NFS-MountPoint-19.PNG)
 
 `df -h`--(Confirming the temporary mount of the block device on each of the /mnt direcrory)
-![NFS-Confirm-MountPoint](.Project-7/Image-7/NFS-Confirm-MountPoint-20.PNG)
+![NFS-Confirm-MountPoint](./Image-7/NFS-Confirm-MountPoint-20.PNG)
 
 ## Step - 4 Install NFS Server
 
@@ -78,7 +78,7 @@
 ![NFS-Chown-Chmod-MountDir](./Image-7/NFS-Chown-Chmod-MountDir-23.PNG)
 
 `sudo vi /etc/exports`;` sudo exportfs -arv` --(Configure access to NFS for clients within the same subnet (example of Subnet CIDR. Run command to edit /etc/exports configuration file using subnet CIDR from my Web Server instance -1. 2. - The 'exportfs' command allows the edited /etc/exports config file to be exported from the vi text editor)
-![Configure-ExportFile-SubnetCIDR](./NFS-Configure-ExportFile-SubnetCIDR-24.PNG)
+![NFS-Configure-ExportFile-SubnetCIDR](./Image-7/NFS-Configure-ExportFile-SubnetCIDR-24.PNG)
 
 `rpcinfo -p | grep nfs` --(Check which port is used by NFS.NFS server to be accessible from your client, you must also open following ports: TCP 111, UDP 111, UDP 2049 and TCP 2049)
 ![NFS-CheckPort-NfsServer](./Image-7/NFS-CheckPort-NfsServer-25.PNG)
@@ -87,10 +87,10 @@
 ## STEP 2 — CONFIGURE THE DATABASE SERVER
 
 `sudo apt update`--(Running command  in both instance MYSQL Server and MySQL Client  ubuntu server to update my list of packages in Ubuntu package manager)
-![Mysql-Update](.Image-7/Mysql-Update-1.PNG)
+![Mysql-Update](./Image-7/Mysql-Update-1.PNG)
 
 `sudo apt install -y mysql-server`--(Install MYSQL Server software to my Mysql server linux instance)
-![Mysql-Install-MysqlServer](.Image-7/Mysql-Install-MysqlServer-2.PNG)
+![Mysql-Install-MysqlServer](./Image-7/Mysql-Install-MysqlServer-2.PNG)
 
 `sudo mysql`;`create database tooling;`; `create user 'webaccess'@'172.31.80.0/20' identified by "Friendly1";`--(Firstly created a database called 'tooling'. Create username and password for my mysql  'Tooling'database)
 ![Mysql-Login-Shell](./Image-7/Mysql-Login-Shell-3.PNG)
@@ -119,7 +119,7 @@
 ![Webserver-1-FsTab-Edited](./Image-7/Webserver-1-FsTab-Edited-3.PNG)
 
 `df -h` --(Run command to verify that NFS was mounted successfully)
-![Webserver-1-FsTab-Persistent](.Image-7/Webserver-1-FsTab-Persistent-4.PNG)
+![Webserver-1-FsTab-Persistent](./Image-7/Webserver-1-FsTab-Persistent-4.PNG)
 
 `sudo touch /var/wwww/evezi.md`; `sudo touch /var/wwww/evezi_1.md` --(On the web server-1 terminal, Create a evezi.md and evezi_1.md files within wwww folder of the var root directory)
 ![Webserver-1-CreateTestFile](./Image-7/Webserver-1-CreateTestFile-5.PNG)
@@ -172,7 +172,7 @@
 ![Webserver-1-RedhatTestPage-WebBrowser-PubIPAdd](./Image-7/Webserver-1-RedhatTestPage-WebBrowser-PubIPAdd-20.PNG)
 
 `sudo cp /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup`--(To disabled Redhat test/ welcome page)
-![Webserver-1-Disabled-Redhat-Homepage](.Image-7/Webserver-1-Disabled-Redhat-Homepage-21.PNG)
+![Webserver-1-Disabled-Redhat-Homepage](./Image-7/Webserver-1-Disabled-Redhat-Homepage-21.PNG)
 
 `sudo setenforce 0`;`sudo vi /etc/sysconfig/selinux`--(Running command - 1. To disable SELinux  2. - To make this change permanent – using vi text editor to amend config file to set 'SELINUX=disabled')
 ![Webserver-1-RedhatTestPage-WebBrowser-PubIPAdd](./Image-7/Webserver-1-Disabled-SELinux-SysConfig-22.PNG)
